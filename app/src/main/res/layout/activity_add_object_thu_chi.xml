@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ActivityAddObjectThuChi"
+    android:orientation="vertical"
+    android:padding="4dp">
+    <EditText
+        android:id="@+id/editTextAddTieuDe"
+        android:hint="Nhập tiêu đề"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:fontFamily="@font/cambriab"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        />
+
+    <EditText
+        android:id="@+id/editTextAddMoTa"
+        android:hint="Diễn giải thu chi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:fontFamily="@font/cambriab"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/editTextAddSoTien"
+        android:hint="Nhập số tiền"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:inputType="number"
+        android:fontFamily="@font/cambriab"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/editTextAddNgayThucHien"
+        android:hint="Ngày thực hiện (dd/MM/yyyy)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:inputType="date"
+        android:fontFamily="@font/cambriab"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:clickable="true"
+        />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radio_add_thutien"
+            android:text="Thu tiền"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/cambriab"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:padding="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radio_add_chitien"
+            android:text="Chi tiền"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:fontFamily="@font/cambriab"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:padding="10dp"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/buttonAddThuChi"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_select"
+        android:fontFamily="@font/cambriab"
+        android:text="Thêm đối tượng"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+</LinearLayout>

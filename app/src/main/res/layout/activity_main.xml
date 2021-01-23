@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imagesViewLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight="7"
+        android:src="@drawable/logo"
+        android:contentDescription="Logo" />
+    <Button
+        android:id="@+id/bt_main_add"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/button_select"
+        android:text="Thêm đối tượng thu-chi"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/cambriab"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/save_money"
+        />
+    <Button
+        android:id="@+id/bt_main_view_list_thu_chi"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/button_select"
+        android:text="Cập nhật đối tượng thu-chi"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/cambriab"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/money_spend"
+        />
+    <Button
+        android:id="@+id/bt_main_report"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/button_select"
+        android:text="Báo cáo Thu-Chi"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/cambriab"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/money_report"
+        />
+</LinearLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TableLayout
+        android:id="@+id/tableLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/lb_report_chonThang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Chọn Tháng: "
+                android:layout_margin="5dp"
+                android:fontFamily="@font/cambriab"
+                android:textColor="@color/maunau"
+                />
+            <Spinner
+                android:id="@+id/spinnerChonThang"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                />
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/button_xemReportThang"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/button_select"
+        android:text="Xem kết quả"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/cambriab"
+        android:textColor="@color/white"
+        />
+    <TableLayout
+        android:id="@+id/tableKetQua_BaoCaoThang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/lb_reportThang_Thu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/cambriab"
+                android:textColor="@color/mauxanhnuocbien"
+                />
+            <TextView
+                android:id="@+id/textView_reportThang_SoTienThu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/cambriab"
+                android:textColor="@color/mauxanhnuocbien"
+
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/lb_reportThang_Chi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/cambriab"
+                android:textColor="@color/maudo"
+                />
+            <TextView
+                android:id="@+id/textView_reportThang_SoTienChi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/cambriab"
+                android:textColor="@color/maudo"
+
+                />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
