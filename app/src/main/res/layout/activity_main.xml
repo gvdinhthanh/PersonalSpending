@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="5dp"
-        android:layout_weight="7"
+        android:layout_weight="5"
         android:src="@drawable/logo"
         android:contentDescription="Logo" />
     <Button
@@ -43,16 +43,42 @@
         android:drawableLeft="@drawable/money_spend"
         />
     <Button
-        android:id="@+id/bt_main_report"
+        android:id="@+id/bt_main_report_thang"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/button_select"
-        android:text="Báo cáo Thu-Chi"
+        android:text="Thu-Chi trong tháng"
         android:textSize="20sp"
         android:layout_weight="1"
         android:layout_margin="5dp"
         android:fontFamily="@font/cambriab"
         android:textColor="@color/white"
         android:drawableLeft="@drawable/money_report"
+        />
+    <Button
+        android:id="@+id/bt_main_report_nam"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/button_select"
+        android:text="Thu-Chi theo năm"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/cambriab"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/baocao_nam"
+        />
+    <Button
+        android:id="@+id/bt_main_report_chung"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/button_select"
+        android:text="Báo cáo thu - chi"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/cambriab"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/baocao_chung"
         />
 </LinearLayout>

@@ -31,8 +31,15 @@ public class ActivityReportThang extends AppCompatActivity {
             "Tháng 07","Tháng 08","Tháng 09","Tháng 10","Tháng 11","Tháng 12"};
     private List<String> listThang = new ArrayList<String>();
 
-    private String thang;
+    private String arrayNam[]={"Chọn năm","Năm 2020","Năm 2021","Năm 2022"};
+    private List<String> listNam = new ArrayList<String>();
+
     private Spinner spinnerThang;
+    private Spinner spinnerNam;
+
+    private String thang;
+    private String nam;
+
     private Button bt_XemReportThang;
     private TextView lb_reportThang_Thu;
     private TextView lb_reportThang_Chi;
@@ -43,7 +50,7 @@ public class ActivityReportThang extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("BÁO CÁO THU-CHI TRONG THÁNG");
+        getSupportActionBar().setTitle("THU-CHI TRONG THÁNG");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_report_thang);
         khoiTaoBien();
@@ -51,24 +58,27 @@ public class ActivityReportThang extends AppCompatActivity {
         bt_XemReportThang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(thang == ""){
+                    Toast.makeText(ActivityReportThang.this, "Chưa chọn Tháng! Vui lòng chọn Tháng!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    if(nam == ""){
+                        Toast.makeText(ActivityReportThang.this, "Chưa chọn năm! Vui lòng chọn Năm!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        int soTienThu = 0;
+                        soTienThu = db.getTongSoThuThang(thang, nam);
+                        String soTienThuS = String.format("%,d",soTienThu);
+                        lb_reportThang_Thu.setText("Số tiền thu: ");
+                        textView_reportThang_SoTienThu.setText(soTienThuS + " VND");
+                        int soTienChi = 0;
+                        soTienChi = db.getTongSoChiThang(thang, nam);
+                        String soTienChiS = String.format("%,d",soTienChi);
+                        lb_reportThang_Chi.setText("Số tiền chi: ");
+                        textView_reportThang_SoTienChi.setText(soTienChiS + " VND");
+                    }
+                }
 
-
-                int soTienThu = 0;
-                soTienThu = db.getTongSoThuThang(thang);
-                String soTienThuS = String.format("%,d",soTienThu);
-                Log.d("Thang: ",thang);
-                Log.d("So tien Thu: ", soTienThuS);
-                lb_reportThang_Thu.setText("Số tiền thu: ");
-                textView_reportThang_SoTienThu.setText(soTienThuS + " VND");
-
-                int soTienChi = 0;
-                soTienChi = db.getTongSoChi();
-                String soTienChiS = String.format("%,d",soTienChi);
-                Log.d("So tien Chi: ", soTienChiS);
-                lb_reportThang_Chi.setText("Số tiền chi: ");
-                textView_reportThang_SoTienChi.setText(soTienChiS + " VND");
-
-                Toast.makeText(ActivityReportThang.this, "Click báo cáo!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -100,6 +110,12 @@ public class ActivityReportThang extends AppCompatActivity {
         adapterThang.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spinnerThang.setAdapter(adapterThang);
         spinnerThang.setOnItemSelectedListener(new MyProcessEventThang());
+
+        spinnerNam = (Spinner) findViewById(R.id.spinnerChonNam);
+        ArrayAdapter<String> adapterNam=new ArrayAdapter<String>(this,R.layout.spinner_item_ndthanh,arrayNam);
+        adapterNam.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        spinnerNam.setAdapter(adapterNam);
+        spinnerNam.setOnItemSelectedListener(new MyProcessEventNam());
 
     }
 
@@ -151,6 +167,32 @@ public class ActivityReportThang extends AppCompatActivity {
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
             thang = "";
+        }
+    }
+
+    private class MyProcessEventNam implements AdapterView.OnItemSelectedListener {
+
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            switch (position) {
+                case 1:
+                    nam = "2020";
+                    break;
+                case 2:
+                    nam = "2021";
+                    break;
+                case 3:
+                    nam = "2022";
+                    break;
+
+                default:
+                    nam = "";
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            nam = "";
         }
     }
 }

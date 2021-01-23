@@ -81,9 +81,9 @@ public class ActivityAddObjectThuChi extends AppCompatActivity {
                 String tieuDe = editTextTieuDe.getText().toString().trim();
                 String moTa = editTextMoTa.getText().toString().trim();
                 String ngayThucHien = editTextNgayThucHien.getText().toString().trim();
-                String ngay = ngayThucHien.substring(0,1);
-                String thang = ngayThucHien.substring(3,4);
-                String nam = ngayThucHien.substring(6,9);
+                String ngay = ngayThucHien.substring(0,2);
+                String thang = ngayThucHien.substring(3,5);
+                String nam = ngayThucHien.substring(6,10);
                 String newNgayThucHien = nam + "/" + thang + "/" + ngay;
                 String soTienString = editTextSoTien.getText().toString().trim();
                 int soTien = Integer.parseInt(soTienString);
@@ -105,9 +105,6 @@ public class ActivityAddObjectThuChi extends AppCompatActivity {
                                 Toast.makeText(ActivityAddObjectThuChi.this, "Vui lòng nhập ngày thực hiện!", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Toast.makeText(ActivityAddObjectThuChi.this, "Vui lòng nhập ngày thực hiện!", Toast.LENGTH_SHORT).show();
-                                Log.d("Ngay thuc hien: ",ngayThucHien);
-                                Log.d("New ngay: ",newNgayThucHien);
                                 ObjectThuChi newObjectThuChi = new ObjectThuChi(doiTuong, tieuDe, moTa, soTien, newNgayThucHien);
                                 if (db.themDoiTuongThuChi(newObjectThuChi)) {
                                     listObjectThuChi.add(newObjectThuChi);

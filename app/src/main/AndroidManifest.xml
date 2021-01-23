@@ -19,6 +19,12 @@
             android:name=".ActivityReportThuChi"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ActivityReportThang"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityReportNam"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ActivityViewListThuChi"
             android:screenOrientation="portrait" />
         <activity android:name=".MainActivity"

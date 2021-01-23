@@ -10,26 +10,19 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-            <!--
+
             <TextView
-                android:id="@+id/lb_report_chonThang"
+                android:id="@+id/lb_report_chonNam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="Chọn Tháng: "
+                android:text="Chọn năm: "
                 android:layout_margin="5dp"
                 android:fontFamily="@font/cambriab"
                 android:textColor="@color/maunau"
                 />
-               -->
             <Spinner
-                android:id="@+id/spinnerChonThang"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
-                />
-            <Spinner
-                android:id="@+id/spinnerChonNam"
+                android:id="@+id/spinnerChonTheoNam"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="5dp"
@@ -37,7 +30,7 @@
         </TableRow>
     </TableLayout>
     <Button
-        android:id="@+id/button_xemReportThang"
+        android:id="@+id/button_xemReportNam"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/button_select"
@@ -48,7 +41,7 @@
         android:textColor="@color/white"
         />
     <TableLayout
-        android:id="@+id/tableKetQua_BaoCaoThang"
+        android:id="@+id/tableKetQua_BaoCaoNam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -56,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
             <TextView
-                android:id="@+id/lb_reportThang_Thu"
+                android:id="@+id/lb_reportNam_Thu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -65,7 +58,7 @@
                 android:textColor="@color/mauxanhnuocbien"
                 />
             <TextView
-                android:id="@+id/textView_reportThang_SoTienThu"
+                android:id="@+id/textView_reportNam_SoTienThu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -80,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
             <TextView
-                android:id="@+id/lb_reportThang_Chi"
+                android:id="@+id/lb_reportNam_Chi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -89,7 +82,7 @@
                 android:textColor="@color/maudo"
                 />
             <TextView
-                android:id="@+id/textView_reportThang_SoTienChi"
+                android:id="@+id/textView_reportNam_SoTienChi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"

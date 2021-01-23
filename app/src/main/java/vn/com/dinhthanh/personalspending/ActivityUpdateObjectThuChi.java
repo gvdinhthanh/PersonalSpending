@@ -81,16 +81,12 @@ public class ActivityUpdateObjectThuChi extends AppCompatActivity {
         editTextMoTa.setText(moTa);
 
         int soTien = myIntent.getIntExtra("sotien", -1);
-        editTextSoTien.setText(soTien);
+        String soTienS = String.valueOf(soTien);
+        editTextSoTien.setText(soTienS);
 
         String ngayThucHienS = myIntent.getStringExtra("ngaythuchien");
-        Date ngayThucHienD = null;
-        try {
-            ngayThucHienD = new SimpleDateFormat("dd/MM/yyyy").parse(ngayThucHienS);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        editTextNgayThucHien.setText(ngayThucHienD.toString());
+        String ngayThucHien = ngayThucHienS.substring(8,10) + "/" + ngayThucHienS.substring(5,7) + "/" + ngayThucHienS.substring(0,4);
+        editTextNgayThucHien.setText(ngayThucHien);
 
         editTextNgayThucHien.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +110,7 @@ public class ActivityUpdateObjectThuChi extends AppCompatActivity {
                 int newSoTien = Integer.parseInt(newSoTienS);
 
                 String NgayThucHien = editTextNgayThucHien.getText().toString().trim();
-                String newNgayThucHien = NgayThucHien.substring(6,9) + "/" + NgayThucHien.substring(3,4) + "/" + NgayThucHien.substring(0,1);
+                String newNgayThucHien = NgayThucHien.substring(6,10) + "/" + NgayThucHien.substring(3,5) + "/" + NgayThucHien.substring(0,2);
 
                 Boolean result = db.updateDoiTuongThuChi(new ObjectThuChi(id, newDoiTuong, newTieuDe, newMoTa, newSoTien, newNgayThucHien));
                 if (result == true) {

@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button bt_add_newObjectThuChi;
     private Button bt_view_listThuChi;
-    private Button bt_main_view_report;
+    private Button bt_main_view_report_thang;
+    private Button bt_main_view_report_nam;
+    private Button bt_main_view_report_chung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +41,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bt_main_view_report = findViewById(R.id.bt_main_report);
-        bt_main_view_report.setOnClickListener(new View.OnClickListener() {
+        bt_main_view_report_thang = findViewById(R.id.bt_main_report_thang);
+        bt_main_view_report_thang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityReportThang.class);
+                startActivity(intent);
+            }
+        });
+        //ThuChiDBHelper db = new ThuChiDBHelper(this);
+        bt_main_view_report_nam = findViewById(R.id.bt_main_report_nam);
+        bt_main_view_report_nam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                db.deleteObjectThuChiCuoi();
+//                Toast.makeText(MainActivity.this, "Xóa bản ghi cuối!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ActivityReportNam.class);
+                startActivity(intent);
+            }
+        });
+
+        bt_main_view_report_chung = findViewById(R.id.bt_main_report_chung);
+        bt_main_view_report_chung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                db.deleteObjectThuChiCuoi();
+//                Toast.makeText(MainActivity.this, "Xóa bản ghi cuối!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, ActivityReportThuChi.class);
                 startActivity(intent);
             }

@@ -65,6 +65,18 @@ public class ThuChiDBHelper extends SQLiteOpenHelper {
         return false;
     }
 
+    public Boolean deleteObjectThuChiCuoi() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM tableThuChi", null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToLast();
+            int id = cursor.getInt(0);
+            long result = db.delete("tableThuChi", "id=?", new String[] {String.valueOf(id)});
+            return result != -1;
+        }
+        return false;
+    }
+
     public Cursor getListThuChi() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM tableThuChi ORDER BY ngaythuchien DESC", null);
@@ -111,32 +123,47 @@ public class ThuChiDBHelper extends SQLiteOpenHelper {
 
 
 
-    public int getTongSoChiThang(String thang){
-
+    public int getTongSoChiThang(String thang, String nam){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM tableThuChi WHERE (doituong = -1) and (ngaythuchien = '____thang%')", null);
-        int tong=0;
-        if(cursor.getCount()>0){
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                tong = tong + cursor.getInt(4);
-                cursor.moveToNext();
-            }
-        }
+        String dieuKien = nam +"_"+ thang + "%";
+        String sql = "";
+        sql = "SELECT SUM(sotien) FROM tableThuChi WHERE (doituong = -1) and (ngaythuchien LIKE '" + dieuKien +"')";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int tong=cursor.getInt(0);
         return tong;
     }
 
-    public int getTongSoThuThang(String thang){
+    public int getTongSoThuThang(String thang, String nam){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM tableThuChi WHERE (doituong = 1) and (ngaythuchien = '%thang%')", null);
-        int tong=0;
-        if(cursor.getCount()>0){
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                tong = tong + cursor.getInt(4);
-                cursor.moveToNext();
-            }
-        }
+        String dieuKien = nam +"_"+ thang + "%";
+        String sql = "";
+        sql = "SELECT SUM(sotien) FROM tableThuChi WHERE (doituong = 1) and (ngaythuchien LIKE '" + dieuKien +"')";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int tong=cursor.getInt(0);
+        return tong;
+    }
+
+    public int getTongSoChiNam(String nam){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String dieuKien = nam +"%";
+        String sql = "";
+        sql = "SELECT SUM(sotien) FROM tableThuChi WHERE (doituong = -1) and (ngaythuchien LIKE '" + dieuKien +"')";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int tong=cursor.getInt(0);
+        return tong;
+    }
+
+    public int getTongSoThuNam(String nam){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String dieuKien = nam + "%";
+        String sql = "";
+        sql = "SELECT SUM(sotien) FROM tableThuChi WHERE (doituong = 1) and (ngaythuchien LIKE '" + dieuKien +"')";
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int tong=cursor.getInt(0);
         return tong;
     }
 }
